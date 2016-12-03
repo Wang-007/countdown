@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#demo {
+			font-size: 30px;
+			color: red;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var demo = document.getElementById('demo');
+			var endtime = new Date('2017/12/31 17:30:00').getTime();
+			setInterval(clock, 1000);
+			function clock() {
+				var startTime = new Date().getTime();
+				var second = parseInt((endtime - startTime) / 1000);
+				var s = second % 60;
+				var m = parseInt(second /60 % 60);
+				var h = parseInt(second/3600 % 24);
+				var d = parseInt(second/3600/24);
+				s < 10 ? s = '0' + s : s = s;
+				m < 10 ? m = '0' + m : m = m;
+				h < 10 ? h = '0' + h : h = h;
+				d < 10 ? d = '0' + d : d = d;
+				demo.innerHTML = '距离狂欢日还有 ' + d +'天' + h + '小时' + m + '分钟' + s + '秒';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+</html>
